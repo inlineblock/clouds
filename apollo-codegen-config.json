@@ -1,0 +1,28 @@
+{
+  "schemaName" : "Clouds",
+  "input" : {
+    "operationSearchPaths" : [
+      "clouds/**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "gql/*.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./gql/",
+      "moduleType" : {
+        "swiftPackageManager" : {
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}

@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Amphion
+
+
 
 @main
 struct cloudsApp: App {
+    var ampionEnvironment = Amphion.Environment(network: Network(endpoint: URL(string: "https://swapi-graphql.netlify.app/.netlify/functions/index")!, onRequest: nil), store: Store());
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FilmListView().environmentObject(ampionEnvironment)
         }
     }
 }
