@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Amphion
 
 struct FilmListItemViewGrapqlDefinitions {
     @gql var film = """
@@ -17,23 +18,27 @@ struct FilmListItemViewGrapqlDefinitions {
 }
 
 struct FilmListItemView: View {
-    var film: FilmListItemView_film$data;
+    @useFragment var film: FilmListItemView_film;
     
     var body: some View {
-        VStack {
-            if film.title != nil {
-              Text(film.title)
+      VStack(alignment: .leading, content: {
+            if let title = film.title {
+              Text(title).bold()
             }
-            if film.releaseDate != nil {
-                Text(film.releaseDate!)
+            if let releaseDate = film.releaseDate {
+              Text(releaseDate)
             }
-        }
+        })
     }
 }
 
 struct FilmListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        let film = FilmListItemView_film$data(releaseDate: "Last Year", title: "Long Time Ago", fragmentType: "Fragment");
+        let film = FilmListItemView_film(
+          releaseDate: "Last Year",
+          title: "Long Time Ago",
+          id: "Fake"
+        );
 
         FilmListItemView(film:film);
     }

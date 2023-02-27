@@ -38,9 +38,9 @@ struct FilmListView: View {
                     if let edges = response.allFilms?.edges {
                         List{
                             ForEach(edges, id: \.!.node?.id) { edge in
-                                if let title = edge?.node?.title {
-                                    Text(title)
-                                }
+                              if let film = edge?.node?.asFilmListItemView_film {
+                                FilmListItemView(film: film)
+                              }
                             }
                         }
                     }

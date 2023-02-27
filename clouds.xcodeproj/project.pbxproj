@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		95AE8C20293DAF8500410408 /* starwars.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 95AE8C1E293DAF8500410408 /* starwars.graphql */; };
-		95AE8C24293DB06200410408 /* gql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE8C23293DB06200410408 /* gql.swift */; };
 		95AE8C26293DB24500410408 /* relay.config.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AE8C25293DB24500410408 /* relay.config.json */; };
 		95AE8C28293DB50D00410408 /* starwars.json in Resources */ = {isa = PBXBuildFile; fileRef = 95AE8C27293DB50D00410408 /* starwars.json */; };
 		95AE8C32293F01B300410408 /* FilmListViewQuery.relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AE8C30293F01B300410408 /* FilmListViewQuery.relay.swift */; };
@@ -45,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		95AE8C1E293DAF8500410408 /* starwars.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starwars.graphql; sourceTree = "<group>"; };
-		95AE8C23293DB06200410408 /* gql.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gql.swift; sourceTree = "<group>"; };
 		95AE8C25293DB24500410408 /* relay.config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = relay.config.json; sourceTree = "<group>"; };
 		95AE8C27293DB50D00410408 /* starwars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starwars.json; sourceTree = "<group>"; };
 		95AE8C30293F01B300410408 /* FilmListViewQuery.relay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmListViewQuery.relay.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				95CEF75B291F238E00A9D772 /* Assets.xcassets */,
 				95F2653A293D205900BCACFB /* cumulus.jpg */,
 				95CEF75D291F238E00A9D772 /* Preview Content */,
-				95AE8C23293DB06200410408 /* gql.swift */,
 			);
 			path = clouds;
 			sourceTree = "<group>";
@@ -331,7 +328,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AE8C24293DB06200410408 /* gql.swift in Sources */,
 				95CEF75A291F238600A9D772 /* FilmListView.swift in Sources */,
 				95CEF782291F241D00A9D772 /* FilmListItemView.swift in Sources */,
 				95CEF758291F238600A9D772 /* cloudsApp.swift in Sources */,

@@ -1,0 +1,34 @@
+/**
+ * @generated SignedSource<<e152cc9f7ffde43911e83e0283aa1f8e>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
+// swiftlint:disable all
+
+import Amphion;
+import Foundation;
+
+class FilmListItemView_film: Amphion.Fragment {
+  @Published private(set) var releaseDate: String?;
+  @Published private(set) var title: String?;
+  
+  required public init(from decoder: Decoder) throws {
+    try super.init(from: decoder);
+    let values = try decoder.container(keyedBy: String.self);
+    self.releaseDate = try? values.decode(String.self, forKey: "releaseDate");
+    self.title = try values.decode(String.self, forKey: "title");
+  }
+  
+  public init(from clone: FilmListItemView_film) {
+    super.init();
+    self.releaseDate = clone.releaseDate;
+    self.title = clone.title;
+  }
+
+  public init(releaseDate: String?, title: String?) {
+    super.init();
+    self.releaseDate = releaseDate;
+    self.title = title;
+  }
+}

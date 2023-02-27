@@ -1,0 +1,105 @@
+/**
+ * @generated SignedSource<<4dec333d4cc6b8c7dabade6cb220c05c>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
+// swiftlint:disable all
+
+import Amphion;
+import Foundation;
+
+// export type FilmListViewQuery$variables 
+struct FilmListViewQuery$variables: Amphion.Variables {}
+
+
+class FilmListViewQuery$data: Amphion.Fragment {
+  @Published private(set) var allFilms: FilmListViewQuery_allFilms?;
+  
+  required public init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: String.self);
+    self.allFilms = try? values.decode(FilmListViewQuery_allFilms.self, forKey: "allFilms");
+    super.init();
+  }
+  
+  class FilmListViewQuery_allFilms: Amphion.Fragment {
+    @Published private(set) var edges: Array<FilmListViewQuery_allFilms_edges?>?;
+    
+    required public init(from decoder: Decoder) throws {
+      let values = try decoder.container(keyedBy: String.self);
+      self.edges = try? values.decode([FilmListViewQuery_allFilms_edges].self, forKey: "edges");
+      super.init();
+    }
+    
+    class FilmListViewQuery_allFilms_edges: Amphion.Fragment {
+      @Published private(set) var node: FilmListViewQuery_allFilms_edges_nodes?;
+      
+      required public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: String.self);
+        self.node = try? values.decode(FilmListViewQuery_allFilms_edges_nodes.self, forKey: "node");
+        super.init();
+      }
+      
+      class FilmListViewQuery_allFilms_edges_nodes: Amphion.Fragment {
+        @Published private(set) var id: String?;
+        @Published private(set) var title: String?;
+        @Published private(set) var asFilm: FilmListItemView_film;
+        
+        required public init(from decoder: Decoder) throws {
+          let values = try decoder.container(keyedBy: String.self);
+          self.id = try? values.decode(String.self, forKey: "id");
+          self.title = try? values.decode(String.self, forKey: "title");
+          self.asFilm = try! FilmListItemView_film(from: decoder);
+          super.init();
+        }
+      }
+    }
+  }
+}
+
+struct FilmListViewQuery: Amphion.Operation {
+  func factory(json: Data) throws -> FilmListViewQuery$data {
+    let decoder = JSONDecoder()
+    let response = try! decoder.decode(AmphionJSONResponse.self, from: json);
+   return response.data;
+  }
+  
+  typealias TResponse = FilmListViewQuery$data;
+  typealias TVariables = FilmListViewQuery$variables;
+  
+  struct AmphionJSONResponse: Decodable {
+    var data: FilmListViewQuery$data;
+    var errors: [OperationServerResponseError?]?;
+  }
+  
+  public init(variables: TVariables) {
+    self.variables = variables;
+  }
+  
+  let variables: TVariables;
+  private(set) var id: String? = nil;
+  private(set) var operationName: String = "FilmListViewQuery";
+  
+  private(set) var text: String? = """
+query FilmListViewQuery {
+  allFilms(first: 5) {
+    edges {
+      node {
+        ...FilmListItemView_film
+        title
+        id
+      }
+    }
+  }
+}
+
+fragment FilmListItemView_film on Film {
+  title
+  releaseDate
+}
+
+""";
+  private(set) var type: Amphion.AmphionOperationType = .Query;
+}
+
+  /* relay hash = "ed5c512e22400b2bed92448b81d5a50c" */
